@@ -1,0 +1,24 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: black;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+.search{
+    font-size: 3rem;
+    font-weight: 300;
+}
