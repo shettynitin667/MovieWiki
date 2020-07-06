@@ -44,35 +44,83 @@ body{
     width: 100%;
     overflow: hidden; 
     height: 250px;
+    position: relative;
+    background: black;
 }
 
 /* Movie title */
 .card-description{
     margin:0;
-    color: white;
-    padding: 0px 11px;
-    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.692);
+    padding: 0px 15px;
+    letter-spacing: 0.8px;
+    font-weight: 300;
+}
+
+#rating{
+    color: rgb(3, 184, 3);
+    font-weight: 500;
+}
+
+.card-rating i{
+    color: rgba(255, 217, 0, 0.74);
 }
 
 .card-title{
     text-align: center;
     font-size: 1.4rem;
-    font-weight: 300;
+    font-weight: 500;
+    color: white;
+    transition: all 0.4s;
 }
 
-.card-rating, .card-plot{
-    font-weight: 200;
+.card-title:hover{
+    text-decoration: underline;
 }
 
 .heart{
-    font-size: 1.3rem;
-    font-weight: 200;
-    padding-left: 20px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding-left: 9px;
     margin:0;
     bottom: 20px;
     position: absolute;
-    color: rgba(128, 128, 128, 0.836);
+    color: rgba(255, 255, 255, 0.466);
+    transition: all 0.3s;
 }
+
+
+.black-filter{
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.603);
+    opacity: 0;
+    transition: all 0.4s;
+    color: gray;
+    font-size: 3rem;
+}
+/* Center the eye icon in the middle */
+.black-filter p{
+    position: absolute;
+    top:30%;
+    left: 50%;
+    transform: translate(-50%,-30%);
+}
+
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+
+.card-image-box:hover .black-filter{
+    opacity: 1;
+}
+
+
 
 /* Parent grid */
 .container{

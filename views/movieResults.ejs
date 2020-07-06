@@ -6,20 +6,21 @@
         <% movieDetails.forEach((data)=>{ %>
             <div class="card">
                 <div class="card-image-box">
-                    <img class="card-image" src="<%= data['Poster']%>">
+                    <img class="card-image" src="<%= data['Poster']%>" onerror="this.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQkmpiE3saxLv17jlQVpffuUAAtU95HJoaPRw&usqp=CAU'">
+                    <div class="black-filter">
+                        <p><a href="<%= data['Poster']%>" target="_blank"><i class="fas fa-eye"></i></a></p>
+                    </div>
                 </div>
                 <div class="card-description">
-                    <p class="card-title"><%= data['Title'].substring(0,45)%></p>
-                    <p class="card-rating">Rating: <%= data['imdbRating']%></p>
-                    <p class="card-plot"><%= data['Plot'].substring(0,80)%>...</p>  
-                    <p class="heart"><i class="far fa-heart">  500</i></p> 
-                </div>
-                
-                
-            </div>
+                    <a href="#"><p class="card-title"><%= data['Title'].substring(0,40)%></p></a>
+                    <p class="card-rating">IMDB rating: <i class="fas fa-star"></i> <span id="rating"><%= data['imdbRating']%></span></p>
+                    <p class="card-plot"><%= data['Plot'].substring(0,60)%>...</p>  
+                    <p class="heart"><span><i class="fas fa-thumbs-up"></i></i></span>  <%= data['imdbVotes']%></i></p> 
+                </div>    
+            </div>        
         <% }); %>
     <% } else{ %>
-        <h1>No Movies Found</h1>
+        <h1><%= results['Error']%></h1>
     <% } %>
     
 </div>
