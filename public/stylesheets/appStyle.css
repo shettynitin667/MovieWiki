@@ -8,18 +8,20 @@ body,html{
 }
 
 body{
-    background: black;
+    background: rgb(52, 51, 52);
 }
 
 /* Grid items */
 .card{
-    width: 300px;
-    height: 500px;
+    width: 400px;
+    height: 580px;
     margin: 0;
-    background: rgba(128, 128, 128, 0.2);
+    background: rgb(52, 51, 52);
     border-radius: 10px;
     overflow: hidden;  /* to crop image inside rounded div*/
     position: relative;
+    box-shadow: -5px -5px 12px rgba(255, 255, 255, 0.158),
+                5px 5px 12px rgba(0, 0, 0, 0.685);
 }
 
 /* Show hover effect for image while hover over card */
@@ -36,7 +38,7 @@ body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    max-width: 300px;
+    max-width: 400px;
     transition: transform 0.4s;
 }
 
@@ -56,6 +58,11 @@ body{
     padding: 0px 15px;
     letter-spacing: 0.8px;
     font-weight: 300;
+}
+
+.card-description .topic{
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.822);
 }
 
 .rating{
@@ -118,7 +125,7 @@ a{
     color: gray;
 }
 
-
+/* to apply black filter with an eye element in middle */
 .card-image-box:hover .black-filter{
     opacity: 1;
 }
@@ -130,9 +137,9 @@ a{
     display: grid;
     width: 90%;
     margin: 50px auto;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-column-gap: 20px;
-    grid-row-gap: 50px;
+    grid-row-gap: 80px;
     justify-items: center;  /*horizontal center item inside grid*/
 }
 /* Preview card styling */
@@ -149,11 +156,13 @@ a{
     transition: all 0.2s;
 }
 
+/* Add open class when any card is selected */
 .big-card.open{
     opacity: 1;
     pointer-events: all;
 }
 
+/* full image shown in preview */
 .big-card .main-image{
     width: 20%;
     height:50%;
@@ -172,6 +181,7 @@ a{
     box-shadow: 0px 0px 10px black;
 }
 
+/* preview blurred cover image */
 .big-card .cover-image{
     width: 100%;
     height: 40%;
@@ -180,7 +190,7 @@ a{
     position: absolute;
 }
 
-
+/* give popup animation while clicked on card */
 .movie-data.open{
     transform: translate(-50%, -50%) scale(1);
 }
@@ -188,27 +198,26 @@ a{
 .movie-data{
     width: 70%;
     height: 90%;
-    background: rgba(128, 128, 128, 0.781);
+    background: rgb(58, 58, 58);
     top:  50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
     position: absolute;
     transition: all 0.2s;
     border-radius: 20px;
-    /* overflow: hidden; */
 }
 
 .movie-details{
     margin: auto;
     width: 90%;
-    height: 30%;
+    height: 100%;
     position: relative;
-    padding: 0px 0px;
+    padding: 0;
     font-size: 1.2rem;
-    top: 65%;
-    color: black;
-    font-weight: 500;
-    overflow-y: scroll;
+    top: 52%;
+    color: rgba(255, 255, 255, 0.849);
+    font-weight: 300;
+    overflow: hidden;
     letter-spacing: 0.8px;
 }
 
@@ -219,8 +228,12 @@ a{
     color: white;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.808);
     overflow: hidden;
-    position: absolute;
-    top: 54%;
+}
+
+.movie-inside{
+    padding:2px 10px;
+    height: 30%;
+    overflow-y: scroll; /* to add scrollbar for y-axis*/
 }
 
 .movie-data .rating{
@@ -228,12 +241,14 @@ a{
 }
 
 .movie-data #topic{
-    font-weight: 700;
+    font-weight: 500;
 }
 .movie-type{
     text-transform: capitalize;
 }
 
+
+/* Customize scrollbar */
 ::-webkit-scrollbar {
     width: 20px;
   }
@@ -255,6 +270,7 @@ a{
     background: white; 
   }
 
+  /* alternative */
 /* Media queries */
 /* @media(max-width: 1360px){
     .container{

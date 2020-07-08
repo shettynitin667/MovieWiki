@@ -35,9 +35,14 @@ app.get('/results', (req,res)=>{
         }        
     })
     .catch((err)=>{
-        var displayError = JSON.parse(err['error']);
-        console.log(displayError['Error']);
-        res.render('movieResults',{results: {'Response': 'False', 'Error': displayError['Error']}, keyword: req.query.movie});
+        try{
+            var displayError = JSON.parse(err['error']);
+            console.log(displayError['Error']);
+            res.render('movieResults',{results: {'Response': 'False', 'Error': displayError['Error']}, keyword: req.query.movie});
+        }
+        catch{
+            console.log('Something went wrong');
+        }
     });
 
 });
