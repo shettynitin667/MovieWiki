@@ -1,9 +1,9 @@
 <%- include ('partials/header')%>
 
-<h1>Movies with keyword "<%= keyword%>"</h1>
-<div id="data" hidden><%= JSON.stringify(movieDetails) %></div> <!-- send dato to the js file-->
+<p class="result">Movies with keyword "<%= keyword%>"</p>
 <div class="container">
     <% if(results['Response']==='True'){ %>
+        <div id="data" hidden><%= JSON.stringify(movieDetails) %></div> <!-- send dato to the js file-->
         <% movieDetails.forEach((data)=>{ %>
             <div class="card">
                 <div class="card-image-box">
@@ -15,7 +15,7 @@
                 <div class="card-description">
                     <a><p class="card-title"><%= data['Title']%></p></a>
                     <p class="card-rating"><span class="topic">IMDB rating:</span>  <i class="fas fa-star"></i> <span class="rating"><%= data['imdbRating']%></span></p>
-                    <p class="card-plot"><%= data['Plot'].substring(0,80)%>...</p> 
+                    <p class="card-plot"><%= data['Plot'].substring(0,70)%>...</p> 
                     <p><span class="topic">Type: </span> &nbsp;<%= data['Type']%> </p> 
                     <p><span class="topic">Genre: </span> &nbsp;<%= data['Genre']%> </p> 
                     <p class="heart"><span><i class="fas fa-thumbs-up"></i></i></span>  <%= data['imdbVotes']%></i></p> 
@@ -50,9 +50,6 @@
     
     
 </div>
-
-
-<a href="/">Search Again!</a>
     
 
 

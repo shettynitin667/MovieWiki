@@ -1,24 +1,133 @@
 body,html{
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+    padding:0;
 }
 body{
+    width: 100%;
+    height: 100%;
     background: black;
     font-family: 'Montserrat', sans-serif;
     color: white;
 }
 
+.back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background: url('https://source.unsplash.com/n_Jb_d8O43Q');
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 .container{
-    width: 80%;
+    width: 100%;
     margin: auto;
     text-align: center;
-    position: relative;
-    top: 30%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    font-weight: 600;
+    font-family: 'MuseoModerno', cursive;
+    text-shadow: 2px 2px 2px black;
 }
+
+.container p{
+    margin: 20px 0;
+    font-size: 2.4rem;
+}
+
+.container input[type='text']{
+    width: 80%; 
+    border-radius: 25px 0 0 25px;
+}
+
+.container input[type='submit']{
+    border-radius: 0 25px 25px 0;
+    color: white;
+    background: rgb(16, 85, 124);
+    transition: background 0.2s;
+    width: 15%;
+}
+
+.container input[type='submit']:hover{
+    background: rgba(0, 69, 109, 0.774);
+}
+
+.container input[type='submit']:active{
+    background: rgb(0, 34, 54);
+}
+
+form{
+    overflow: hidden;
+    text-align: center;
+    margin: auto;
+    width: 70%;
+}
+
+.container input{
+    outline: none;
+    border: none;
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    float: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
+
 
 .search{
     font-size: 3rem;
     font-weight: 300;
+}
+
+.filter{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.493);
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+.brand{
+    font-family: 'MuseoModerno', cursive;
+    position: absolute;
+    font-size: 30px;
+    top:0;
+    left:0;
+    padding: 2%;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+@media(max-width: 770px){
+    .brand{
+        font-size:5.5vw;
+        padding: 4%;
+    }
+
+    form{
+        width: 90%;
+    }
+
+}
+
+@media(max-width: 1150px){
+    .container input[type='text']{
+        width: 65%;
+    } 
+    .container input[type='submit']{
+        width: 22%;
+    }
 }

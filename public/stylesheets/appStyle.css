@@ -5,23 +5,105 @@ body,html{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     color: white;
+    /* --grayback : rgb(52, 51, 52); */
+    --grayback: linear-gradient(to right, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --shadow: -4px -4px 10px rgba(255, 255, 255, 0.158),
+    4px 4px 10px rgba(0, 0, 0, 0.685);
+    
 }
+
 
 body{
-    background: rgb(52, 51, 52);
+    background: var(--grayback);
 }
 
+#navbar{
+    width: 100%;
+    height: 80px;
+    background: var(--grayback);
+    position: relative;
+    top: 0;
+    border-radius: 5px;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.685);
+    color: rgba(255, 255, 255, 0.932);
+}
+
+
+#navbar .brand{
+    line-height: 80px;
+    font-size: 1.7rem;
+    margin: 0px 100px;
+    display: inline-block;  
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.685);
+    font-family: 'MuseoModerno', cursive;
+}
+
+#navbar .brand a{
+    text-decoration: none;
+    color: white;
+}
+
+#navbar .search{
+    font-size: 1.3rem;
+    position: absolute;
+    display: inline-block;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#navbar .movie-input{
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background: var(--grayback);
+    box-shadow: -2px -2px 7px rgba(255, 255, 255, 0.158),
+    2px 2px 7px rgba(0, 0, 0, 0.685);
+    outline: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    padding-left: 20px;
+}
+
+#navbar button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background: var(--grayback);
+    box-shadow: -2px -2px 7px rgba(255, 255, 255, 0.158),
+    2px 2px 7px rgba(0, 0, 0, 0.685);
+    outline: none;
+}
+
+::placeholder{
+    color: rgba(255, 255, 255, 0.527);
+}
+
+#navbar button:active{
+    box-shadow: 0px 0px 0px #FFF;
+}
+
+
+.result{
+    margin: 10px 30px;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.685);
+}
 /* Grid items */
 .card{
-    width: 400px;
-    height: 580px;
+    width: 90%;
+    height: 600px;
     margin: 0;
-    background: rgb(52, 51, 52);
+    background: var(--grayback);
     border-radius: 10px;
     overflow: hidden;  /* to crop image inside rounded div*/
     position: relative;
-    box-shadow: -5px -5px 12px rgba(255, 255, 255, 0.158),
-                5px 5px 12px rgba(0, 0, 0, 0.685);
+    max-width: 400px;
+    box-shadow: var(--shadow)
 }
 
 /* Show hover effect for image while hover over card */
@@ -38,7 +120,7 @@ body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    max-width: 400px;
+    max-width: 800px;
     transition: transform 0.4s;
 }
 
@@ -135,12 +217,16 @@ a{
 /* Parent grid */
 .container{
     display: grid;
-    width: 90%;
+    width: 90vw;
     margin: 50px auto;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-column-gap: 50px;
     grid-row-gap: 80px;
     justify-items: center;  /*horizontal center item inside grid*/
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 /* Preview card styling */
 .big-card{
@@ -183,8 +269,11 @@ a{
 
 /* preview blurred cover image */
 .big-card .cover-image{
-    width: 100%;
+    width: 98%;
     height: 40%;
+    left: 50%;
+    top:1%;
+    transform: translateX(-50%);
     object-fit: cover;
     filter: blur(10px);
     position: absolute;
@@ -196,9 +285,9 @@ a{
 }
 
 .movie-data{
-    width: 70%;
-    height: 90%;
-    background: rgb(58, 58, 58);
+    width: 80%;
+    height: 100%;
+    background: var(--grayback);
     top:  50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
@@ -232,7 +321,7 @@ a{
 
 .movie-inside{
     padding:2px 10px;
-    height: 30%;
+    height: 29%;
     overflow-y: scroll; /* to add scrollbar for y-axis*/
 }
 
@@ -284,8 +373,45 @@ a{
     }
 }
 
-@media(max-width: 704px){
+@media(max-width: 814px){
     .container{
         grid-template-columns: 1fr;
     }
 } */
+
+/* @media(min-width: 704px){
+    .container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(min-width: 1020px){
+    .container{
+        grid-template-columns: 1fr  1fr 1fr;
+    }
+} */
+
+@media(max-width:930px){
+    #navbar{
+        height:130px;
+    }
+
+    #navbar .brand{
+        display: block;
+        margin:auto;
+        text-align: center;
+    }
+    #navbar .search{
+        display: block;
+        position: static;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    #navbar .movie-input{
+        width: 70%;
+    }
+    .container{
+        top: 140px;
+    }
+}
