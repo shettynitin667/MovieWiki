@@ -47,7 +47,7 @@ for(let i=0; i< card.length; i++){
 }
 
 bigCard.addEventListener('click', (e)=>{
-    if(e.target.classList.contains('big-card')){
+    if(e.target.classList.contains('big-card') || e.target.classList.contains('close-icon')){
         bigCard.classList.remove('open');
         cardMovieData.classList.remove('open');
     }

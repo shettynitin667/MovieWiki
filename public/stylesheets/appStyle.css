@@ -279,6 +279,20 @@ a{
     position: absolute;
 }
 
+/* close icon */
+.close-icon{
+    position: absolute;
+    font-size: 1.5rem;
+    color:rgba(255, 255, 255, 0.836);
+    top:0;
+    right: 0;
+    height: 15px;
+    width:15px;
+    padding: 10px;
+    margin:0;
+    cursor: pointer;
+}
+
 /* give popup animation while clicked on card */
 .movie-data.open{
     transform: translate(-50%, -50%) scale(1);
